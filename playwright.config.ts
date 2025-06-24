@@ -12,6 +12,12 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  timeout: 10000, // Таймаут для каждого теста (10 сек)
+  globalTimeout: 60000, // Общий таймаут для всех тестов (60 сек)
+
+  expect: {
+    timeout: 2000, // Таймаут для expect-ассертов (2 сек)
+  },
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -30,6 +36,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    // actionTimeout: 5000, // Таймаут для действий (click, fill и т.д.)
+    navigationTimeout: 5000, // Таймаут для навигации (5 сек)
   },
 
   /* Configure projects for major browsers */

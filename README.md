@@ -42,3 +42,21 @@ npm start
 This is modified and more lightweight version of original application to practice UI Automation with Playwright.
 
 The original repo is here: https://github.com/akveo/ngx-admin
+
+______
+
+# Playwright Timeout Configuration Tips
+
+## Recommended Settings
+
+Советы по настройке:
+
+Для стабильных тестов увеличивайте таймауты (особенно в CI)
+
+Для медленных приложений можно установить:
+
+`timeout`: 30000,
+`expect`: { timeout: 5000 },
+`navigationTimeout`: 10000  
+
+`actionTimeout` лучше не переопределять - используйте значения по умолчанию
